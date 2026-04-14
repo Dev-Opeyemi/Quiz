@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      placeholder="Enter answer e.g a, b, c, d"
+      id="answerInput"
+    />
+
+    <button onclick="verifyAnswer()">submit</button>
+
+    <script>
+      // QUESTIONS ARE STORED HERE
+      questions = [
+        {
+          questionText: "What is 2 + 2?",
+          options: [2, 3, 4, 5],
+          correctAnswer: "c",
+        },
+
+        {
+          questionText: "Which language is used for web development?",
+          options: ["Python", "HTML", "C++", "Java"],
+          correctAnswer: "b",
+        },
+
+        {
+          questionText: "What does CPU stand for?",
+          options: [
+            "Central Processing Unit",
+            "Computer Personal Unit",
+            "Central Power Unit",
+            "Control Processing Unit",
+          ],
+          correctAnswer: "a",
+        },
+
+        {
+          questionText: "Which of these is NOT a JavaScript data type?",
+          options: ["String", "Boolean", "Float", "Undefined"],
+          correctAnswer: "c",
+        },
+
+        {
+          questionText: "What will 5 === '5' return?",
+          options: [true, false, "both", "none"],
+          correctAnswer: "b",
+        },
+      ];
+
+      const alphabet = ["a", "b", "c", "d"];
+      let currentQuestionIndex = 0;
+      let score = 0;
+
+      // FUNCTION TO SHOW QUESTION
+      function showQuestion() {
+        const question = questions[currentQuestionIndex];
+
+        console.log(
+          `Question ${currentQuestionIndex + 1}: ${question.questionText}`,
+        );
+
+        for (let i = 0; i < question.options.length; i++) {
+          console.log(`${alphabet[i]}: ${question.options[i]}`);
+        }
+      }
+
+      // FUNCTION TO VERIFY IF ANSWER IS CORRECT
+      function verifyAnswer() {
+        let answer = document.getElementById("answerInput").value.toLowerCase();
+
+        if (
+          answer !== "a" &&
+          answer !== "b" &&
+          answer !== "c" &&
+          answer !== "d"
+        ) {
+          console.log("Invalid input! Please enter a, b, c or d");
+          return;
+        }
+
+        if (answer === questions[currentQuestionIndex].correctAnswer) {
+          score++;
+          console.log("Correct");
+        } else {
+          console.log("Wrong");
+        }
+
+        showNextQuestion();
+      }
+
+      // FUNCTION TO SHOW NEXT QUESTION AFTER PREVIOUS ONE IS VERIFIED
+      function showNextQuestion() {
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+          showQuestion();
+        } else {
+          console.log(
+            `Quiz is over! your score is: ${score} / ${questions.length}`,
+          );
+        }
+      }
+
+      //MAIN FUNCTION
+      function main() {
+        showQuestion();
+      }
+
+      main();
+    </script>
+  </body>
+</html>
