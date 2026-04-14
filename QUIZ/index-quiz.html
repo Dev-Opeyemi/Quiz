@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <style></style>
+
+    <!-- SCREEN 1: WELCOME -->
+
+    <div id="welcome-screen">
+      <h4 class="knowledge-ch">knowledge Challenge</h4>
+
+      <div>
+        <h1>Ready to test your <span>mind?</span></h1>
+        <p>Test your knowledge with these questions</p>
+        <button>Start Quiz</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: QUIZ -->
+    <div id="quiz-screen">
+      <p id="question-number">Question 1 of 5</p>
+      <h2 id="question-text">Question goes here</h2>
+      <div id="options-container">
+        <!-- option buttons will appear here dynamically -->
+      </div>
+      <p id="feedback"></p>
+    </div>
+
+    <!-- SCREEN 3: SCORE -->
+    <div id="score-screen">
+      <h1>Quiz <span>Over!</span></h1>
+      <p id="final-score">
+        You scored <br />
+        <span>?</span> of <span>?</span>
+      </p>
+      <button>Play Again</button>
+    </div>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>
